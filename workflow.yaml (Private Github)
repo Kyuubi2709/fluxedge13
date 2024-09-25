@@ -13,6 +13,8 @@ spec:
         value: "git@github.com:Kyuubi2709/fluxedge13-label.git" # Put in your repo URL
       - name: repoBranch
         value: "main" # Put in the branch you want to deploy
+      - name: cloudflareToken
+        value: "eyJhIjoiOThkNGMzYzRkZWNmMzc5ZGM0YTE4NjU0YThhYjZjYmYiLCJ0Ijoi******"
       # Node Selector will be dynamically added by FluxEdge
       # Deployment Information will be dynmically added by FluxEdge
   templates:
