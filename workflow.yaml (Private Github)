@@ -79,7 +79,6 @@ spec:
     inputs:
       parameters:
         - name: nodeSelector
-        - name: cloudflareToken
         - name: deploymentInformation
       artifacts:
         - name: repo
@@ -92,7 +91,6 @@ spec:
         cd /workspace/overlays/edge_llama31
         # Replace placeholders in kustomization.yaml with actual values
         sed -i "s/\NODE_SELECTOR/{{inputs.parameters.nodeSelector}}/g" deployment-patch.yaml
-        sed -i "s/\CLOUDFLARE_TOKEN/{{inputs.parameters.cloudflareToken}}/g" deployment-patch.yaml 
         sed -i "s/\DEPLOYMENT_INFORMATION/{{inputs.parameters.deploymentInformation}}/g" deployment-patch.yaml
         sed -i "s/\DEPLOYMENT_INFORMATION/{{inputs.parameters.deploymentInformation}}/g" service-patch.yaml 
         sed -i "s/\DEPLOYMENT_INFORMATION/{{inputs.parameters.deploymentInformation}}/g" kustomization.yaml 
