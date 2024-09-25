@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   name: fluxai-cloudflare
   labels:
-    app: fluxai-cloudflare
+    deploymentInformation: fluxai-cloudflare
 spec:
   selector:
     matchLabels:
-      name: fluxai-cloudflare
+      deploymentInformation: fluxai-cloudflare
   template:
     metadata:
       labels:
-        name: fluxai-cloudflare
+        deploymentInformation: fluxai-cloudflare
     spec:
       hostname: fluxai-cloudflare-pod  # Custom hostname for the pod
       dnsPolicy: None
