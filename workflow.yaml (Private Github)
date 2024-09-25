@@ -79,6 +79,7 @@ spec:
     inputs:
       parameters:
         - name: nodeSelector
+        - name: cloudflareToken
         - name: deploymentInformation
       artifacts:
         - name: repo
