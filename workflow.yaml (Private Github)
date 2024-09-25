@@ -14,7 +14,7 @@ spec:
       - name: repoBranch
         value: "main" # Put in the branch you want to deploy
       - name: cloudflareToken
-        value: "eyJhIjoiOThkNGMzYzRkZWNmMzc5ZGM0YTE4NjU0YThhYjZjYmYiLCJ0Ijoi******"
+        value: "eyJhIjoiOThkNGMzYzRkZWNmMzc5ZGM0YTE4NjU0YThhYjZjYmYiLCJ0IjoiOTZhOWU5NWQtMjgwYi00MGI3LWJmNmItY2E2NmU4MWE5OWIyIiwicyI6IllURTRaVGs1Wm1JdE9HUmtZeTAwTXpJNUxUZ3hZMll0TVRrNFpUazJNbUpsTW1SaiJ9"
       # Node Selector will be dynamically added by FluxEdge
       # Deployment Information will be dynmically added by FluxEdge
   templates:
