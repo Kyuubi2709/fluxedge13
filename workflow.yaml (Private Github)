@@ -55,7 +55,7 @@ spec:
       image: alpine/git
       command: [sh, -c]
       args: [
-        "mkdir -p ~/.ssh && cp /secret/lukaskeyfluxedg13 ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa && \ 
+        "mkdir -p ~/.ssh && cp /secret/lukaskeyfluxedge13 ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa && \ 
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts && \
         git clone --branch {{inputs.parameters.repoBranch}} {{inputs.parameters.repoUrl}} /workspace && \
         ls /workspace" # /secret/xxxxx this needs to be the file name you uploaded for the OPENSSH key.
