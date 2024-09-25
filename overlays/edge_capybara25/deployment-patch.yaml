@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fluxai-cloudflare
+spec:
+  selector:
+    matchLabels:
+      name: DEPLOYMENT_INFORMATION
+  template:
+    metadata:
+      labels:
+        name: DEPLOYMENT_INFORMATION
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: NODE_SELECTOR # This is a placeholder that will get replaced
+      containers:
+      - name: edge-4090-8080
+        image: ghcr.io/huggingface/text-generation-inference:2.0.4
+        args: ["--env"]
+        resources:
+         limits:
+            nvidia.com/gpu: 1 # Allocate 1 GPU
+        env:
+        - name: MODEL_ID
+          value: "TheBloke/CapybaraHermes-2.5-Mistral-7B-AWQ"
+        - name: SHARDED
+          value: "false"
+        - name: QUANTIZE
+          value: "awq"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: HF_HUB_ENABLE_HF_TRANSFER
+          value: "0"
+        - name: TRUST_REMOTE_CODE
+          value: "true"
+        - name: PORT
+          value: "8080"
+        - name: MAX_INPUT_TOKENS
+          value: "4000"
+        - name: MAX_TOTAL_TOKENS
+          value: "5000"
+      - name: cloudflared
+        args:
+        - --token
+        - eyJhIjoiOThkNGMzYzRkZWNmMzc5ZGM0YTE4NjU0YThhYjZjYmYiLCJ0IjoiMzMzN2MwMDQtZWZhOC00YTZhLWJlODctYWFkMWEyNzQxZDlkIiwicyI6Ik4yTXhaV0l5WVdVdFptUTNOeTAwTTJNd0xXRTFNVEV0TURaak1qZGxaR1ZoWVdKaSJ9
